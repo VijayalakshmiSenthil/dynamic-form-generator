@@ -81,7 +81,6 @@ const defaultSchema: FormSchema = {
       required: false,
       placeholder: "Any other details you'd like to share...",
     },
-
   ],
 };
 
@@ -100,24 +99,30 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen">
-      <div className="w-full md:w-1/2 p-4 border-r">
-        <h2 className="text-lg font-bold mb-2">JSON Editor</h2>
-        <AceEditor
-          mode="json"
-          theme="github"
-          value={JSON.stringify(schema, null, 2)}
-          onChange={handleEditorChange}
-          name="json-editor"
-          width="100%"
-          height="80%"
-        />
-        {jsonError && <p className="text-red-500 mt-2">{jsonError}</p>}
+    <>
+      <h1 className="text-center text-3xl font-bold pt-5">
+        <b>Dynamic Form Generator</b>
+      </h1>
+      <div className="flex flex-col md:flex-row h-screen pt-5">
+        <div className="w-full md:w-1/2 p-4 border-r h-full md:h-auto">
+          <h2 className="text-lg font-bold mb-2">JSON Editor</h2>
+          <AceEditor
+            mode="json"
+            theme="github"
+            value={JSON.stringify(schema, null, 2)}
+            onChange={handleEditorChange}
+            name="json-editor"
+            width="100%"
+            height="100%"
+            style={{ minHeight: "400px" }}
+          />
+          {jsonError && <p className="text-red-500 mt-2">{jsonError}</p>}
+        </div>
+        <div className="w-full md:w-1/2 p-4">
+          <FormRenderer schema={schema} />
+        </div>
       </div>
-      <div className="w-full md:w-1/2 p-4">
-        <FormRenderer schema={schema} />
-      </div>
-    </div>
+    </>
   );
 }
 
