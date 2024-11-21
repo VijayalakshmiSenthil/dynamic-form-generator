@@ -73,7 +73,7 @@ const FormRenderer: React.FC<FormRendererProps> = ({ schema }) => {
       case "select":
         return (
           <div key={field.id} className="mb-4">
-            <label className="block font-medium mb-1">{field.label}</label>
+            <label className="block text-2xl mb-1">{field.label}</label>
             <select
               value={formData[field.id] || ""}
               onChange={(e) => handleChange(field.id, e.target.value)}
@@ -138,12 +138,14 @@ const FormRenderer: React.FC<FormRendererProps> = ({ schema }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h1 className="text-2xl font-bold mb-4">{schema.formTitle}</h1>
+        <h1 className="text-2xl font-bold mb-4 text-green-500">
+          {schema.formTitle}
+        </h1>
         <p className="mb-6">{schema.formDescription}</p>
         {schema.fields.map((field) => renderField(field))}
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-green-500 text-white px-4 py-2 rounded"
         >
           Submit
         </button>
@@ -153,7 +155,7 @@ const FormRenderer: React.FC<FormRendererProps> = ({ schema }) => {
         <div className="mt-4">
           <button
             onClick={downloadAsJSON}
-            className="bg-green-500 text-white px-4 py-2 mt-2 rounded"
+            className="bg-blue-500 text-white px-4 py-2 mt-2 rounded"
           >
             Download as JSON
           </button>

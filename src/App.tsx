@@ -100,12 +100,12 @@ function App() {
 
   return (
     <>
-      <h1 className="text-center text-3xl font-bold pt-5">
+      <h1 className="text-center text-3xl font-bold pt-5 text-blue-500">
         <b>Dynamic Form Generator</b>
       </h1>
-      <div className="flex flex-col md:flex-row h-screen pt-5">
+      <div className="flex flex-col md:flex-row h-screen pt-5 gap-5">
         <div className="w-full md:w-1/2 p-4 border-r h-full md:h-auto">
-          <h2 className="text-lg font-bold mb-2">JSON Editor</h2>
+          <h2 className="text-2xl font-bold mb-2 text-green-500">JSON Editor</h2>
           <AceEditor
             mode="json"
             theme="github"
