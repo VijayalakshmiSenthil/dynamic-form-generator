@@ -1,46 +1,193 @@
-# Getting Started with Create React App
+Dynamic Form Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a dynamic form generator application that allows users to define JSON schemas to create forms dynamically. The forms are rendered in real-time, and submissions can be downloaded as JSON.
 
-## Available Scripts
+Features
+Real-time form rendering based on JSON schema.
+JSON validation in the integrated editor.
+Download form submissions as JSON files.
+Supports text, email, select, radio, and textarea fields.
+Responsive layout for better usability on all devices.
 
-In the project directory, you can run:
+Setup Instructions
+Prerequisites
+Ensure you have the following installed:
+Node.js (v14 or later)
+npm (v6 or later) 
 
-### `npm start`
+Clone the Repository
+git clone https://github.com/your-username/dynamic-form-generator.git
+cd dynamic-form-generator
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Install Dependencies
+npm install
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Run the Application
+npm start
 
-### `npm test`
+* Open your browser and navigate to: http://localhost:3000 *
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Sample JSON Schema
+{
 
-### `npm run build`
+  "formTitle": "Project Requirements Survey",
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  "formDescription": "Please fill out this survey about your project needs",
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  "fields": [
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    {
 
-### `npm run eject`
+      "id": "name",
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+      "type": "text",
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+      "label": "Full Name",
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+      "required": true,
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+      "placeholder": "Enter your full name"
 
-## Learn More
+    },
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    {
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+      "id": "email",
+
+      "type": "email",
+
+      "label": "Email Address",
+
+      "required": true,
+
+      "placeholder": "you@example.com",
+
+      "validation": {
+
+        "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+
+        "message": "Please enter a valid email address"
+
+      }
+
+    },
+
+    {
+
+      "id": "companySize",
+
+      "type": "select",
+
+      "label": "Company Size",
+
+      "required": true,
+
+      "options": [
+
+        { "value": "1-50", "label": "1-50 employees" },
+
+        { "value": "51-200", "label": "51-200 employees" },
+
+        { "value": "201-1000", "label": "201-1000 employees" },
+
+        { "value": "1000+", "label": "1000+ employees" }
+
+      ]
+
+    },
+
+    {
+
+      "id": "industry",
+
+      "type": "radio",
+
+      "label": "Industry",
+
+      "required": true,
+
+      "options": [
+
+        { "value": "tech", "label": "Technology" },
+
+        { "value": "healthcare", "label": "Healthcare" },
+
+        { "value": "finance", "label": "Finance" },
+
+        { "value": "retail", "label": "Retail" },
+
+        { "value": "other", "label": "Other" }
+
+      ]
+
+    },
+
+    {
+
+      "id": "timeline",
+
+      "type": "select",
+
+      "label": "Project Timeline",
+
+      "required": true,
+
+      "options": [
+
+        { "value": "immediate", "label": "Immediate (within 1 month)" },
+
+        { "value": "short", "label": "Short-term (1-3 months)" },
+
+        { "value": "medium", "label": "Medium-term (3-6 months)" },
+
+        { "value": "long", "label": "Long-term (6+ months)" }
+
+      ]
+
+    },
+
+    {
+
+      "id": "comments",
+
+      "type": "textarea",
+
+      "label": "Additional Comments",
+
+      "required": false,
+
+      "placeholder": "Any other details you'd like to share..."
+
+    }
+
+  ]
+
+}
+
+Local Development Guide
+
+File Structure
+src/
+├── App.tsx             # Main application entry point
+├── FormRenderer.tsx    # Component to render forms dynamically
+├── types.ts            # Types for JSON schema and form data
+├── index.css           # CSS and styling files
+└── utils/              # Utility functions
+
+Key Commands
+Start Development Server: npm start or yarn start
+Run Tests: npm test or yarn test
+Build for Production: npm run build or yarn build
+
+Modify JSON Schema
+Edit the JSON schema in the integrated editor on the left pane of the application.
+
+Contributing
+Contributions are welcome! Please open an issue or submit a pull request.
+
+
+
+
+
+
+
